@@ -13,7 +13,7 @@ var config = {
 	},
 	devServer: {
 		inline: true,
-		contentBase:'./src',
+		contentBase:'./',
 		port:3001
 	},
 	module: {

@@ -9,13 +9,15 @@ export default class mainComponent extends React.Component{
 		super(props);
 		this.fetchData = this.fetchData.bind(this);
 		this.state = {
-			name : '',
-			company: ''
+			name : null,
+			company: null,
+			loader: false
 		}
 	}
 
 	fetchData(e){
 		e.preventDefault();
+		this.setState({loader:true});
 		this.props.getData('https://api.myjson.com/bins/mwnu9');
 	}
 
@@ -25,31 +27,51 @@ export default class mainComponent extends React.Component{
 
 	componentDidMount(){
 		console.log("COMPONENT DID MOUNT!");
-		if(this.props.data){
-			debugger;
-			this.setState({
-			name : this.props.data.name,
-			company: this.props.data.company
-		})
-		}
 		
+	}
+
+	componentWillReceiveProps(){
+		console.log("COMPONENT WILL RECIEVE PROPS!");
+		if(this.props.data && this.state.name==null){
+			this.setState({
+				name : this.props.data.name,
+				company: this.props.data.company
+			});
+		}
 	}
 
 	shouldComponentUpdate(){
 		console.log("SHOULD COMPONENT UPDATE!");
-		if(!this.props.data){
-			return true;
+		if(!this.props.data || this.state.name!=null){
+			return false;
 		}
-		return false;
+		return true;
+	}
+
+	componentWillUpdate(){
+		console.log("COMPONENT WILL UPDATE!");
+		
 	}
 
 	componentDidUpdate(){
 		console.log("COMPONENT DID UPDATE!");
-		
 	}
 
 	render(){
 		console.log("COMPONENT RENDERS!",this.state);
+
+		let startLoader = {
+			visibility : (!this.state.loader)?'visible':'hidden'
+		};
+		const data = <div className="details">
+						<h3>DETAILS : </h3>
+						<p>NAME : {this.state.name}</p>
+						<p>COMPANY : {this.state.company}</p>
+					</div>;
+		const error = <div>Sorry! data not found...:(</div>;
+		const loader = <h3 style={startLoader}>Loading...</h3>;
+		const displayDetails = (this.state.name==null)?loader:data;
+		
 		return( 
 			<div className="main-component">
 				<h2>This is the main component which will take other child components</h2>
@@ -57,9 +79,7 @@ export default class mainComponent extends React.Component{
 				<Child2 />
 				<Child3 />
                 <button onClick={this.fetchData}>FETCH DATA</button>
-				<h3>DETAILS : </h3>
-				<p>NAME : {this.props.data && this.state.name}</p>
-				<p>COMPANY : {this.props.data && this.state.company}</p>
+				{this.state.loader && displayDetails}
 			</div>
 		);
 	}
