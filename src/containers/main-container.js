@@ -5,13 +5,10 @@ import mainComponent from '../components/main-component.js';
 
 function mapStateToProps(state){
 
-    if(!state.mainComponentReducers.details){
-        return {};
-    }
     let {details} = state.mainComponentReducers;
 
     return{
-       data: details 
+       details: details 
     };
 }
 
