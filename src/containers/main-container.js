@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import getData  from '../actions/main-component.js';
-import mainComponent from '../components/main-component.js';
+import mainComponent from '../components/main-component';
 
 function mapStateToProps(state){
 
-    let {details} = state.mainComponentReducers;
+    let {feeling} = state.mainComponentReducers;
 
     return{
-       details: details 
+       feeling: feeling 
     };
 }
 

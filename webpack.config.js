@@ -19,7 +19,7 @@ var config = {
 	module: {
 		loaders: [
 		{
-			test:/\.js$/,
+			test:/\.jsx?$/,
 			exclude:/node_modules/,
 			loader:'babel-loader',
 			query:{
@@ -29,11 +29,19 @@ var config = {
 		},
 		{
 			test: /\.scss$/,
+			exclude:/node_modules/,
 			loader: 'style-loader!css-loader!sass-loader',
 			include: path.join(__dirname, 'src')
+		},
+		{
+			test: /\.(png|jpg|eot|svg|ttf|woff|woff2)$/,
+			exclude:/node_modules/,
+			loader: 'url-loader?limit=10000'
 		}
-		
 		]
+	},
+	resolve: {
+		extensions: ['.js', '.json', '.jsx']
 	}
 }
 module.exports = config;

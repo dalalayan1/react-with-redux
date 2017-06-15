@@ -42,6 +42,9 @@ var config = {
 	},
 	plugins: [
 		HtmlWebpackPluginConfig
-	]
+	],
+	resolve: {
+		extensions: ['.js', '.json', '.jsx']
+	}
 }
 module.exports = config;

@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "clean": "rimraf dist",
-    "start": "webpack-dev-server --content-base",
+    "start": "webpack-dev-server --open --hot --content-base",
     "build:gulp": "npm run clean && gulp && npm run server",
     "build:webpack": "npm run clean && webpack --config webpack.config.prod.js && npm run server",
     "server": "node server",
@@ -16,6 +16,7 @@
     "react-dom": "*",
     "react-redux": "*",
     "react-router": "*",
+    "react-router-dom": "*",
     "redux": "*",
     "redux-logger": "*",
     "redux-thunk": "*"
@@ -28,11 +29,12 @@
     "babel-preset-react": "*",
     "babel-preset-stage-0": "*",
     "css-loader": "*",
-    "style-loader": "*",
-    "sass-loader": "*",
     "express": "*",
     "html-webpack-plugin": "*",
+    "node-sass": "*",
     "open": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
     "webpack": "*",
     "webpack-dev-server": "*",
     "webpack-hot-middleware": "*"

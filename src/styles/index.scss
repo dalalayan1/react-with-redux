@@ -1,1 +1,20 @@
-// your styles here
+@font-face {
+    font-family: myFirstFont;
+    src: url('https://fonts.googleapis.com/css?family=Pangolin');
+}
+
+$bg-color: #fafafa;
+$font-color: #00a1ff;
+
+*,body {
+    margin: 0;
+    padding: 0;
+    font-family: myFirstFont;
+} 
+
+.main-component {
+    background: $bg-color;
+    color: $font-color;
+    width: 100%;
+    float: left;
+}
