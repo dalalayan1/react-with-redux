@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Image from './Image';
 import config from '../config.json';
 import '../styles/avatar.scss';
 
@@ -6,7 +7,7 @@ const Avatar = () => {
 
   return (
       <div className="avatar" >
-          <img src={config.avatarSrc} />
+          <Image src={config.avatarSrc} className={"avatar-nitrogen"}/>
       </div>
   );
 };

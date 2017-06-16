@@ -34,10 +34,14 @@ var config = {
 			include: path.join(__dirname, 'src')
 		},
 		{
-			test: /\.(png|jpg|eot|svg|ttf|woff|woff2)$/,
+			test: /\.(eot|ttf|woff|woff2)$/,
 			exclude:/node_modules/,
 			loader: 'url-loader?limit=10000'
-		}
+		},
+		{
+			test: /\.(jpe?g|png|gif|svg)$/i, 
+			exclude:/node_modules/,
+			loader: "file-loader"}
 		]
 	},
 	resolve: {
