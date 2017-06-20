@@ -1,5 +1,5 @@
 {
-  "name": "react-redux",
+  "name": "universal-rendering with react-redux",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -8,7 +8,8 @@
     "build:gulp": "npm run clean && gulp && npm run server",
     "build:webpack": "npm run clean && webpack --config webpack.config.prod.js && npm run server",
     "server": "node server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "make": "webpack"
   },
   "dependencies": {
     "axios": "*",
@@ -27,19 +28,24 @@
     "babel-plugin-transform-decorators-legacy": "*",
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
+    "babel-preset-react-hmre": "*",
     "babel-preset-stage-0": "*",
+    "babel-register": "^6.24.1",
     "css-loader": "*",
     "express": "*",
-    "file-loader": "^0.11.2",
+    "file-loader": "*",
     "html-webpack-plugin": "*",
     "node-sass": "*",
     "open": "*",
     "sass-loader": "*",
+    "static-site-generator-webpack-plugin": "*",
     "style-loader": "*",
     "url-loader": "*",
     "webpack": "*",
+    "webpack-dev-middleware": "*",
     "webpack-dev-server": "*",
-    "webpack-hot-middleware": "*"
+    "webpack-hot-middleware": "*",
+    "webpack-node-externals": "*"
   },
   "keywords": [],
   "author": "",
